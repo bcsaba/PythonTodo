@@ -1,16 +1,22 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>To-Do list</title>
-</head>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>To-Do list</title>
+  </head>
 
-<body>
-<h1>Your To-Do list</h1>
+  <body>
+	<h1>Your To-Do list</h1>
 
-<input id="id_new_item" type="text" name="" size="" placeholder="Enter a to-do item">
+	<form method="post">
+	  <input id="id_new_item" type="text" name="item_text" size="" placeholder="Enter a to-do item">
+	  {% csrf_token %}
+	</form>
 
-<table id="id_list_table" border="" width="">
-</table>
-</body>
+	<table id="id_list_table" border="" width="">
+	  <tr>
+		<td>1: {{new_item_text}}</td>
+	  </tr>
+	</table>
+  </body>
 </html>
