@@ -1,18 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-  <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>To-Do list</title>
-  </head>
+{% extends "base.html" %}
 
-  <body>
-	<h1>Your To-Do list</h1>
+{% block header_text %}Your To-Do list{% endblock %}
 
-	<form method="post" action="/lists/{{ list.id }}/add_item">
-	  <input id="id_new_item" type="text" name="item_text" size="" placeholder="Enter a to-do item">
-	  {% csrf_token %}
-	</form>
+{% block form_action %}/lists/{{ list.id }}/add_item{% endblock %}
 
+{% block table %}
 	<table id="id_list_table" border="" width="">
 	  {% for item in list.item_set.all %}
 	  <tr>
@@ -20,5 +12,4 @@
 	  </tr>
 	  {% endfor %}
 	</table>
-  </body>
-</html>
+{% endblock %}
