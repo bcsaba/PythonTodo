@@ -1,18 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="/static/base.css" type="text/css" media="screen" />
     <title>To-Do list</title>
   </head>
 
   <body>
-	<h1>{% block header_text %}{% endblock %}</h1>
 
-    <form method="post" action="{% block form_action %}{% endblock %}">
-	  <input id="id_new_item" type="text" name="item_text" size="" placeholder="Enter a to-do item">
-	  {% csrf_token %}
-    </form>
-    {% block table %}
-    {% endblock %}
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-6 col-md-offset-3 jumbotron">
+		  <div class="text-center">
+			<h1>{% block header_text %}{% endblock %}</h1>
+
+			<form method="post" action="{% block form_action %}{% endblock %}">
+			  <input id="id_new_item" type="text" name="item_text" class="form-control input-lg" placeholder="Enter a to-do item">
+			  {% csrf_token %}
+			</form>
+		  </div>
+		</div>
+	  </div>
+
+	  <div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		  {% block table %}
+		  {% endblock %}
+		</div>
+	  </div>
+
+	</div>
   </body>
 </html>
