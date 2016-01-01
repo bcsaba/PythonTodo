@@ -18,7 +18,7 @@ class HomePageTest(TestCase):
         response = home_page(request)
         expected_html = render_to_string("home.html")
         generated_content = response.content.decode()
-        generated_content_no_csrfinput = '\n'.join([line if not "csrfmiddlew" in line else "\t  "
+        generated_content_no_csrfinput = '\n'.join([line if not "csrfmiddlew" in line else "\t\t\t  "
                                                     for line in generated_content.split('\n')])
         self.assertEqual(generated_content_no_csrfinput, expected_html)
 
